@@ -50,7 +50,7 @@ const sv=()=>{try{localStorage.setItem(CK,JSON.stringify(cs))}catch{$("c-err").t
 const cls=g=>g>=4.5?"First Class":g>=3.5?"Second Class Upper":g>=2.4?"Second Class Lower":g>=1.5?"Third Class":g>=1?"Pass":"Fail";
 function drawC(){
   const body=$("c-body");body.replaceChildren();
-  cs.forEach(c=>{const tr=mk("tr");[c.term,c.code,c.title,c.units,c.grade,GP[c.grade]*c.units].forEach(v=>tr.append(mk("td","",v)));
+  cs.forEach(c=>{const tr=mk("tr");["Semester","Code","Title","Units","Grade","Points"].forEach((l,i)=>{const v=[c.term,c.code,c.title,c.units,c.grade,GP[c.grade]*c.units][i],cell=mk("td","",v);cell.dataset.label=l;tr.append(cell)});
     const td=mk("td","noprint"),b=mk("button","btn sm","Remove");b.type="button";b.setAttribute("aria-label","Remove "+c.code);
     b.addEventListener("click",()=>{cs=cs.filter(x=>x.id!==c.id);sv();drawC()});td.append(b);tr.append(td);body.append(tr)});
   if(!cs.length){const tr=mk("tr"),td=mk("td","empty","No courses yet. Add a result to start your transcript.");td.colSpan=7;tr.append(td);body.append(tr)}

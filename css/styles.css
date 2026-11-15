@@ -720,3 +720,37 @@ main{overflow-x:clip}
   .tw thead tr{background:var(--sf)}
 }
 @media(max-width:640px){.fine{padding-bottom:64px}}
+
+/* ===== Mobile tables: scrollable fallback + stacked cards on phones ===== */
+.tw{overflow-x:auto;overflow-y:hidden;max-width:100%}
+@media screen and (max-width:700px){
+  .tw{overflow:visible;border:0;background:none;box-shadow:none;border-radius:0}
+  table.rt{min-width:0;width:100%;display:block}
+  table.rt caption{display:block;padding:0 2px 14px;text-align:left}
+  table.rt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  table.rt tbody{display:grid;gap:14px}
+  table.rt tr{display:block;overflow:hidden;border:1px solid color-mix(in srgb,var(--ac) 28%,var(--ln));border-radius:14px;background:var(--sf)!important}
+  table.rt td,table.rt th{display:block;width:auto;border:0;text-align:left;padding:10px 16px;overflow-wrap:anywhere}
+  table.rt th[scope=row]{padding-bottom:2px;font-size:1.05rem;color:var(--ink)}
+  table.rt td[data-label]::before{content:attr(data-label);display:block;margin-bottom:2px;font:700 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mu)}
+  table.rt td.sk{padding:0;width:auto}
+  .tw td.sk img,table.rt td.sk img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:0;margin:0}
+  table.rt td:last-child{padding-bottom:16px}
+  /* planner transcript: label left, value right */
+  table.kv td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;text-align:right;padding:8px 16px}
+  table.kv td::before{margin:0!important;text-align:left;flex:none}
+  table.kv td.noprint{justify-content:flex-end;padding-bottom:14px}
+  table.kv td.empty{display:block;text-align:center}
+}
+
+/* ===== Planner "today" card: week strip must fit small phones ===== */
+.today,.today>*{min-width:0}
+.wk{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media(max-width:560px){
+  .today{grid-template-columns:minmax(0,1fr);padding:20px 14px}
+  .today p,.today .tm{text-align:left}
+  .wk{gap:4px}
+  .wk li{padding:8px 2px}
+  .wk span{font-size:.68rem}
+  .wk b{font-size:1.05rem}
+}
