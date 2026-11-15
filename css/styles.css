@@ -754,3 +754,55 @@ main{overflow-x:clip}
   .wk span{font-size:.68rem}
   .wk b{font-size:1.05rem}
 }
+
+/* ===== Planner on phones: tidy, aligned, thumb-friendly ===== */
+@media screen and (max-width:700px){
+  /* summary tiles: 2 per row, an odd last tile spans the full row */
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div{grid-column:auto;padding:12px 10px}
+  .stats div:last-child:nth-child(odd){grid-column:1/-1}
+  .stats dd{font-size:1.7rem}
+
+  /* form panels: left-aligned and compact */
+  .panel{padding:18px 16px}
+  .panel h2,.panel h3{text-align:left}
+  .panel .meta,.panel p{text-align:left}
+  .two input,.two select,.tri input,.tri select{min-width:0;max-width:100%}
+  input[type=date]{display:block;-webkit-appearance:none;appearance:none;text-align:left;min-height:46px}
+  #c-form .two{grid-template-columns:1fr}
+  #c-form .tri{grid-template-columns:1fr 1fr}
+  #c-form .tri>div:first-child{grid-column:1/-1}
+
+  /* search on its own row, then three equal buttons */
+  .tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}
+  .tools input[type=search]{grid-column:1/-1;flex:none}
+  .tools .btn{min-width:0;padding:0 6px;font-size:.88rem;line-height:1.2;text-align:center}
+
+  /* filters: 3 on the first row, 2 on the second, all aligned */
+  .filt{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+  .filt .btn{grid-column:span 2;min-width:0;padding:0 6px;font-size:.9rem}
+  .filt .btn:nth-child(n+4){grid-column:span 3}
+  #t-alert{text-align:left}
+
+  /* task cards: full-width title, controls tucked underneath */
+  .task{grid-template-columns:28px minmax(0,1fr);gap:10px 12px;padding:14px 12px;text-align:left}
+  .task .tt{text-align:left}
+  .task .tags{justify-content:flex-start}
+  .task .act{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;justify-content:stretch}
+  .task .act .sel{flex:1 1 100%;width:100%;min-height:42px}
+  .task .act .btn{flex:1 1 0;min-height:40px}
+
+  /* bottom action rows: equal full-width buttons */
+  .row.full{flex-direction:column;gap:10px;margin-top:16px}
+  .row.full .btn{width:100%}
+}
+
+/* course form: code, units and grade sit in one row on wider screens */
+.tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tri>div{min-width:0}
+@media screen and (max-width:700px){
+  #c-form .tri{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media screen and (max-width:380px){
+  #task-form .two{grid-template-columns:1fr}
+}

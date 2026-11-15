@@ -41,11 +41,11 @@
 <div class="panel"><h2>Reminder email</h2><p class="meta" style="margin:-2px 0 14px">Enter the address that should receive reminders, for example your Gmail. It is used when you press Email on a task or Email me my open tasks.</p><label for="t-mail">Your email address</label><input id="t-mail" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="m-err"><p id="m-err" class="err"></p><p id="m-note" class="meta" style="margin:0"></p></div>
 </div>
 <div>
-<div class="tools"><input id="t-q" type="search" placeholder="Search tasks (press / to focus)" aria-label="Search tasks"><a class="btn ghost" href="#transcript">Transcript</a><button id="t-export" class="btn ghost" type="button">Export backup</button><button id="t-importb" class="btn ghost" type="button">Import backup</button><input id="t-import" type="file" accept="application/json" hidden aria-label="Import planner backup"></div>
-<div class="row" style="margin:0" role="group" aria-label="Filter tasks"><button class="btn" type="button" data-f="all" aria-pressed="true">All</button><button class="btn" type="button" data-f="todo" aria-pressed="false">To do</button><button class="btn" type="button" data-f="doing" aria-pressed="false">In progress</button><button class="btn" type="button" data-f="review" aria-pressed="false">Review</button><button class="btn" type="button" data-f="done" aria-pressed="false">Done</button></div>
+<div class="tools"><input id="t-q" type="search" placeholder="Search tasks" aria-label="Search tasks"><a class="btn ghost" href="#transcript">Transcript</a><button id="t-export" class="btn ghost" type="button">Export backup</button><button id="t-importb" class="btn ghost" type="button">Import backup</button><input id="t-import" type="file" accept="application/json" hidden aria-label="Import planner backup"></div>
+<div class="row filt" style="margin:0" role="group" aria-label="Filter tasks"><button class="btn" type="button" data-f="all" aria-pressed="true">All</button><button class="btn" type="button" data-f="todo" aria-pressed="false">To do</button><button class="btn" type="button" data-f="doing" aria-pressed="false">In progress</button><button class="btn" type="button" data-f="review" aria-pressed="false">Review</button><button class="btn" type="button" data-f="done" aria-pressed="false">Done</button></div>
 <p id="t-alert" hidden role="status"></p>
 <ul id="t-list" class="tasks"></ul>
-<div class="row" style="margin:0"><button id="t-digest" class="btn" type="button">Email me my open tasks</button><button id="t-clear" class="btn ghost" type="button">Clear completed</button></div>
+<div class="row full" style="margin:0"><button id="t-digest" class="btn" type="button">Email me my open tasks</button><button id="t-clear" class="btn ghost" type="button">Clear completed</button></div>
 <p id="t-note" class="meta" role="status"></p>
 </div></div></section>
 <section class="s wrap" id="transcript"><h2 style="margin-bottom:8px">Academic transcript</h2>
@@ -56,7 +56,7 @@
 <p id="c-err" class="err" role="alert"></p><button class="btn pri" type="submit">Add to transcript</button></form>
 <dl class="stats"><div><dt>Total units</dt><dd id="c-units">0</dd></div><div><dt>Quality points</dt><dd id="c-qp">0</dd></div><div><dt>CGPA</dt><dd id="c-gpa">–</dd></div><div><dt>Standing</dt><dd id="c-class">–</dd></div></dl>
 <div class="tw"><table class="rt kv"><caption>Course results</caption><thead><tr><th>Semester</th><th>Code</th><th>Title</th><th>Units</th><th>Grade</th><th>Points</th><th class="noprint"><span class="sr">Action</span></th></tr></thead><tbody id="c-body"></tbody></table></div>
-<div class="row noprint"><button id="c-print" class="btn pri" type="button">Print or save as PDF</button><button id="c-csv" class="btn ghost" type="button">Download CSV</button></div></section>
+<div class="row noprint full"><button id="c-print" class="btn pri" type="button">Print or save as PDF</button><button id="c-csv" class="btn ghost" type="button">Download CSV</button></div></section>
 <section class="s wrap"><h2>How the planner works</h2>
 <ol class="steps">
 <li><b>Add a task</b><p>Enter a title, course, type, priority and due date. Overdue tasks are flagged automatically.</p></li>
